@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from serpapi import GoogleSearch
 import json
+import os
 
 from utils import (
     model,
