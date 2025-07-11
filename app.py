@@ -5,6 +5,7 @@ from serpapi import GoogleSearch
 import json
 from selenium_context import create_driver 
 import os
+import gc
 
 from utils import (
     model,
