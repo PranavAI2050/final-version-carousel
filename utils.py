@@ -45,9 +45,10 @@ def is_pdf(url):
 def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
-
-def split_text(text, max_length=max_length):
-    return [text[i:i+max_length] for i in range(0, len(text), max_length)]
+    
+def split_text(text, max_length=max_length, max_chunks=2):
+    chunks = [text[i:i+max_length] for i in range(0, len(text), max_length)]
+    return chunks[:max_chunks]
 
 
 def scrape_with_selenium(url, driver):
