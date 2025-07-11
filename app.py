@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from serpapi import GoogleSearch
 import json
 from selenium_context import create_driver 
+import os
 
 from utils import (
     model,
@@ -40,13 +41,6 @@ def generate_content():
         Extra_Content_Description = data.get('Extra_Content_Description', '')
         Content_Specifications = data.get('Content_Specifications', [])
         json_template_str = data.get('json_template_str', None)
-
-        # Setup headless browser
-        options = Options()
-        options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--no-sandbox")
-        driver = webdriver.Chrome(options=options)
 
         # SERP API search
         params = {
@@ -168,8 +162,8 @@ def generate_content():
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
-    finally:
-        driver.quit()
-
+    
+        
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7860)
+    port = int(os.environ.get('PORT', 4000))  # Default is optional, e.g., 10000 for local testing
+    app.run(host='0.0.0.0', port=port)
