@@ -19,8 +19,8 @@ gemini_key = os.environ.get("gemini_key")
 
 genai.configure(api_key= gemini_key)
 model = GenerativeModel('gemini-2.0-flash-lite')
-max_length = 16000
-MAX_CHARS = 16000 
+max_length = 100000  
+MAX_CHARS = 100000
 MIN_SCORE = 6 
 
 
