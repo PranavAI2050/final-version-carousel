@@ -56,7 +56,7 @@ def generate_content():
             'q': topic,
             'api_key': serp_api_key,
             'engine': 'google',
-            'num': '2',
+            'num': '5',
         }
         print(f"[DEBUG] SERP API Params: {params}")
         search = GoogleSearch(params)
