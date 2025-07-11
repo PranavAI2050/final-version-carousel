@@ -113,6 +113,7 @@ def generate_content():
         gc.collect()
         with create_driver() as driver:
             final_images = collect_valid_images_from_links(links_only, results_list, driver)
+            final_images = final_images[:20]
 
         # final_images = collect_valid_images_from_links(links_only, results_list,driver)
         del links_only
